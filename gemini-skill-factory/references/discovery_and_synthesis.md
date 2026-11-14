@@ -25,6 +25,7 @@ To prevent transient chat noise or hallucinated workarounds from corrupting perm
    - Exact problem observed
    - Exact 1–5 line rule/safety net to add (or diff summary)
 3. **User Confirmation**: Wait for explicit user approval (`Apply`, `Yes`, or edits) before calling `skill-lifecycle-guardian` to persist the change.
+4. **1:1 Verbatim Fidelity + Cross-Chat Modularity**: When distilling a conversational workflow that produced a UI, HTML app, or structured artifact, preserve the **exact 1:1 verbatim UI/template** in `references/` while stripping single-chat branding, institution names, and hardcoded subject labels into clean `{{PLACEHOLDER}}` variables so the skill stays modular across any topic or chat.
 
 ---
 
