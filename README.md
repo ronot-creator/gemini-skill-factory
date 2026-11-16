@@ -1,6 +1,6 @@
 # Gemini Skill Factory
 
-**100% Pure-Markdown, Chat-Safe package manager, universal 4-source skill compiler, autonomous skill discoverer, and update guard for Gemini Apps skills.**  
+**100% Pure-Markdown, Chat-Safe package manager, universal 4-source skill compiler, autonomous skill discoverer, smart exporter, and update guard for Gemini Apps skills.**  
 Works identically in **standard Gemini Chat** and **Task Mode**—with zero `.py`/`.sh`/`.js` scripts, zero terminal setup, and zero external MCP dependencies.
 
 ---
@@ -22,7 +22,7 @@ Copy and paste this single prompt into Gemini:
 
 | Skill | Version | What It Does |
 | :--- | :--- | :--- |
-| **`gemini-skill-factory`** | `3.2.1` | Discovers skills autonomously (`Mode E`), synthesizes Pure-Markdown skills from **4 sources**, runs security & portability checks, cross-references existing skills (`Categories A–E`), consolidates split/megarepo skills (`O(N)` Mergeability + Sharded Mega-Skills), appends a **Plain-English TL;DR & Recommended Strategy** with a copy-pasteable reply, installs, and self-updates. |
+| **`gemini-skill-factory`** | `3.3.0` | Discovers skills autonomously (`Mode E`), synthesizes Pure-Markdown skills from **4 sources**, runs security & portability checks, cross-references existing skills (`Categories A–E`), consolidates split/megarepo skills (`O(N)` Mergeability + Sharded Mega-Skills), appends a **Plain-English TL;DR & Recommended Strategy**, exports skills (`Mode F`), and self-updates. |
 | **`skill-lifecycle-guardian`** | `2.0.0` | Prevents multi-file skill corruption, empty blob IDs, broken frontmatter, and orphan files across both standard Gemini Chat and Task Mode. |
 
 ---
@@ -36,6 +36,12 @@ Copy and paste this single prompt into Gemini:
 | **Mode B — Selective Import** | `Import #1, #3, and 5-7` (or by skill name) | Installs or merges only the specific items you choose from an inspection or discovery report. |
 | **Mode D — Low-Token Self-Update** | `@gemini-skill-factory check for updates` | Compares `assets/local_manifest.json` against `manifest.json` (`O(1)`), pulls only changed `.md`/`.json` files (`O(Delta)`), and updates in place. |
 | **Mode E — Autonomous Skill Discovery** | `@gemini-skill-factory find me a skill for <goal>` | Searches [`skills.sh`](https://skills.sh/) and GitHub, fetches and verifies raw `SKILL.md` files (never from snippets alone), and presents ranked candidates with a **Plain-English TL;DR & copy-pasteable Recommended Strategy**. |
+| **Mode F — Environment-Detecting Export** | `@gemini-skill-factory export <skills or all>` | Detects active tools automatically: packages **`.zip` + `manifest.json`** (or GitHub commit) when sandbox/file tools exist, or defaults to a **Google Drive folder** (raw `.md`/`.json`) in plain Chat Mode, with a **≤3 named skills** Direct-in-Chat fallback. |
+
+### Mode F Export Targets (Automatic Tool Detection)
+- **Download `.zip` (Sandbox / Task Mode / Agentic CLI):** Packages any number of selected skills + `manifest.json` into a single downloadable `.zip` (or pushes to GitHub if connected).
+- **Save to Google Drive (Plain Chat Mode Default):** Creates a timestamped Drive folder (`Gemini-Skills-Export-YYYYMMDD`) using raw `text/markdown` and `application/json` (never converting to Google Docs) for up to 10 skills per batch.
+- **Direct-in-Chat Fallback:** When Drive is full or unavailable, outputs a collision-proof JSON Skillpack capped strictly at **≤3 named skills** to prevent truncation.
 
 ### Plain-English TL;DR & Copy-Pasteable Reply (Every Report)
 Because technical tables can be dense, every **Mode C** Inspection Report and **Mode E** Discovery Report ends with a jargon-free summary block:
@@ -130,6 +136,7 @@ You can steer or bypass the consolidation engine directly in your prompt:
 │   ├── assets/local_manifest.json
 │   └── references/
 │       ├── discovery_and_synthesis.md
+│       ├── export_protocol.md
 │       ├── merge_strategy.md
 │       ├── output_schemas.md
 │       ├── transcoding_rules.md

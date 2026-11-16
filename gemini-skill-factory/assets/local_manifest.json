@@ -5,12 +5,16 @@
   "entry": "SKILL.md",
   "files": {
     "SKILL.md": {
-      "sha256_lf": "5e802b0ed1dba442acc3ec52302ea710d5404d66a2ceaf4e108eaa98fc7631d4",
-      "bytes": 9700
+      "sha256_lf": "a6c9fb9a1fe8858ee16be46c709019fe033fc7931ec4e628188e5ec9087b1c7f",
+      "bytes": 10311
     },
     "references/discovery_and_synthesis.md": {
-      "sha256_lf": "2718eec42de003579abff739930740e736b6dff0a222a96acb20c8abebdfbc55",
-      "bytes": 5051
+      "sha256_lf": "71479d9fb41789da786585b6960717589c2fb6c399199ad5397856c2dd8a87eb",
+      "bytes": 4658
+    },
+    "references/export_protocol.md": {
+      "sha256_lf": "c7fb2d285f9464debee0eee491114da19967c84617d54be52bcaecc1c53ca66f",
+      "bytes": 2653
     },
     "references/merge_strategy.md": {
       "sha256_lf": "bd41cffdf432be1b8fd5faa654d93fdbd0006987a92c422bc27eac4488e453f5",
@@ -21,13 +25,13 @@
       "bytes": 4380
     },
     "references/transcoding_rules.md": {
-      "sha256_lf": "e5623ef5b74deb7d32d3392fd7d9a964a51c57f13e2f7ae37b4b2377deaebf2e",
-      "bytes": 3761
+      "sha256_lf": "7e028e2c6aec2790299a4e113be0082c1c7549782b73e2816fedfaa690617e3f",
+      "bytes": 2802
     },
     "references/update_protocol.md": {
       "sha256_lf": "854f1a4e223f6233890a5d4c6d28ae38d60d8ef2aadc1a442286cb4739418c05",
       "bytes": 3085
     }
   },
-  "total_files": 6
+  "total_files": 7
 }
